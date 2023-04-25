@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "script": "server.js",
+      "instance": 3,
+      "exec_mode": "cluster"
+    }
+  ]
+}
