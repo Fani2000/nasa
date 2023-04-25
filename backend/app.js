@@ -1,10 +1,13 @@
 const express = require("express");
+const cors = require("cors");
+
+const planetsRouter = require("./routes/plannets/plannets.router");
+
 const app = express();
 
-app.get("/api/v1/nasa/plannets", (req, res) => {
-  return res.json({
-    message: "Welcome home",
-  });
-});
+app.use(express.json());
+app.use(cors());
 
-return app;
+app.use("/api/v1/", planetsRouter);
+
+module.exports = app;
