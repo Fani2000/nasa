@@ -29,7 +29,7 @@ app.use(morgan("combined", { stream: accessLogStream, immediate: true }));
 app.use("/api/v1/", planetsRouter);
 app.use("/api/v1/", launchesRouter);
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
