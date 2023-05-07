@@ -7,8 +7,7 @@ const morgan = require("morgan");
 
 const url = "http://localhost:3000";
 
-const planetsRouter = require("./routes/plannets/plannets.router");
-const launchesRouter = require("./routes/launches/launches.router");
+const apiRouter = require('./routes/api')
 
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log")
@@ -26,8 +25,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("combined", { stream: accessLogStream, immediate: true }));
 
-app.use("/api/v1/", planetsRouter);
-app.use("/api/v1/", launchesRouter);
+app.use('/api/v1/',apiRouter)
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "index.html"));
