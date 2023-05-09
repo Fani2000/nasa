@@ -20,6 +20,7 @@ const startServer = async () => {
   const server = http.createServer(app);
 
   server.listen(PORT, () => console.log(`Listerning on port ${PORT}`));
+  console.log('RUNNING THE SERVER...')
 };
 
 startServer();
