@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-server": "npm install --prefix backend",
     "install-client": "npm install --prefix frontend",
-    "install": "npm run install-server && npm run install-client",
+    "install": "npm run install-client && npm run install-server",
     "start": "node backend/server",
     "server": "npm run watch --prefix backend",
     "client": "npm start --prefix frontend",
-    "dev": "npm run server && npm run client"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "url": "https://github.com/Fani2000/nasa/issues"
   },
   "homepage": "https://github.com/Fani2000/nasa#readme",
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^8.0.1"
   }
 }
