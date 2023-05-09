@@ -13,8 +13,9 @@ dotenv.config();
 const startServer = async () => {
   const dbRes = await connect();
   if (!dbRes) throw new Error("Connection to the db Failed: 💣💣💣");
+
   await loadPlanetsData();
-  await getSpaceXLaunches()
+  await getSpaceXLaunches();
 
   const server = http.createServer(app);
 
