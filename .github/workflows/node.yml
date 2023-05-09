@@ -9,11 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-versions: [14.x, 16.x, 18.x, 20.x]
-
+    
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js version 18
