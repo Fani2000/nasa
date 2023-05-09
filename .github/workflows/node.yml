@@ -10,16 +10,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  strategy:
-    matrix:
-      node-versions: [14.x, 16.x, 18.x, 20.x]
+    strategy:
+      matrix:
+        node-versions: [14.x, 16.x, 18.x, 20.x]
 
-  steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-    - uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node
+        with:
+          node-version: ${{matrix.node-version}}
+      #   - uses: actions/checkout@v3
+      #   - name: Use Node.js ${{ matrix.node-version }}
+      #   - uses: actions/setup-node@v2
+      # with:
+      #   node-version: ${{ matrix.node-version }}
 
-    - run:  npm install
-    - run: npm run build --prefix client
+      - run: npm install
+      - run: npm run build --prefix client
