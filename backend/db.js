@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const connect = async () => {
   const password = process.env.DB_PASSWORD;
   const url = process.env.DB_URL?.replace("<password>", password);
+  console.log(url)
 
   try {
-    const response = await mongoose.connect(url);
+    await mongoose.connect(url);
     console.log("CONNECTIONS SUCCESSFUL:🥳🥳🥳🥳");
     return true;
   } catch (e) {

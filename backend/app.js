@@ -7,11 +7,7 @@ const morgan = require("morgan");
 
 const url = "http://localhost:3000";
 
-const apiRouter = require('./routes/api')
-
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, "access.log")
-);
+const apiRouter = require("./routes/api");
 
 const app = express();
 
@@ -23,9 +19,9 @@ app.use(
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(morgan("combined", { stream: accessLogStream, immediate: true }));
+app.use(morgan("combined"));
 
-app.use('/api/v1/',apiRouter)
+app.use("/api/v1/", apiRouter);
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "index.html"));
