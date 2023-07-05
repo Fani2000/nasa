@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+require('dotenv').config()
 
 const connect = async () => {
   const password = process.env.DB_PASSWORD;
